@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MirasExplosion : MonoBehaviour
 {
     public AudioClip sonidoGrito;
+    public AudioClip sonidoEsperanza;
     AudioSource fuenteAudio2;
 
     // Start is called before the first frame update
@@ -25,6 +26,11 @@ public class MirasExplosion : MonoBehaviour
                 if (hitInfo.collider.gameObject.CompareTag("Maul"))
                 {
                     fuenteAudio2.clip = sonidoGrito;
+                    fuenteAudio2.Play();
+                }
+                if (hitInfo.collider.gameObject.CompareTag("Qui"))
+                {
+                    fuenteAudio2.clip = sonidoEsperanza;
                     fuenteAudio2.Play();
                 }
             }

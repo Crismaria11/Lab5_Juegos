@@ -11,6 +11,9 @@ public class Personita : MonoBehaviour
     public AudioClip sonidoPistola;
     AudioSource fuenteAudio;
 
+    public AudioClip sonidoGrito;
+    public AudioClip sonidoEsperanza;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,16 @@ public class Personita : MonoBehaviour
                     Destroy(hitInfo.collider.gameObject);
                     puntuacion += 1;
                     TxtContador.text = puntuacion.ToString();
+                }
+                if (hitInfo.collider.gameObject.CompareTag("Maul"))
+                {
+                    fuenteAudio.clip = sonidoGrito;
+                    fuenteAudio.Play();
+                }
+                if (hitInfo.collider.gameObject.CompareTag("Qui"))
+                {
+                    fuenteAudio.clip = sonidoEsperanza;
+                    fuenteAudio.Play();
                 }
             }
     }
