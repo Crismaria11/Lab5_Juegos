@@ -8,10 +8,13 @@ public class Personita : MonoBehaviour
     public int puntuacion = 0;
     public Text TxtContador;
 
+    public AudioClip sonidoPistola;
+    AudioSource fuenteAudio;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        fuenteAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -19,9 +22,12 @@ public class Personita : MonoBehaviour
     {
         RaycastHit hitInfo;
         Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
             if(Physics.Raycast(myRay, out hitInfo))
             {
+                fuenteAudio.clip = sonidoPistola;
+                fuenteAudio.Play();
+
                 if (hitInfo.collider.gameObject.CompareTag("Blancos"))
                 {
                     Destroy(hitInfo.collider.gameObject);
