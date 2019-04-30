@@ -44,6 +44,7 @@ public class Personita : MonoBehaviour
                 }
                 if (hitInfo.collider.gameObject.CompareTag("Qui"))
                 {
+                    Destroy(hitInfo.collider.gameObject);
                     fuenteAudio.clip = sonidoEsperanza;
                     fuenteAudio.Play();
                 }
